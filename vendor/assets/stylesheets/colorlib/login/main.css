@@ -468,6 +468,7 @@ iframe {
     padding-left: 60px;
     padding-right: 60px;
   }
+}
 
 @media (max-width: 576px) {
   .wrap-login100 {
@@ -479,5 +480,4 @@ iframe {
   .btn-google {
     width: 100%;
   }
-}
 }
