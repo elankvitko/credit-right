@@ -1,0 +1,7 @@
+<h1>Hi Team!</h1>
+<h3>A new registrant is seeking approval. Information below:</h3>
+<p><%= @name %></p>
+<p><%= @email %></p>
+<br>
+<br>
+<p>If you would like to approve this, please click <%= link_to 'Here', accept_registrant_url( @key ) %></p>

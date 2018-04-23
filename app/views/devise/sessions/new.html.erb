@@ -1,0 +1,143 @@
+<style media="screen">
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%; /* Could be more or less, depending on screen size */
+  }
+
+  .close {
+    color: #aaa;
+    margin-left: 95%;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .modal-content-hold {
+    text-align: center;
+  }
+
+  .input-groups-hold {
+    display: inline-block;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  .modal form input {
+    border: 1px solid grey;
+  }
+
+  .modal form input:focus {
+    border-color: grey !important;
+  }
+</style>
+
+<div class="limiter">
+  <div class="container-login100" style="background-image: url( <%= image_url( 'colorlib/login/bg-01.jpg' ) %> );">
+    <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login100-form validate-form flex-sb flex-w" }) do |f| %>
+        <span class="login100-form-title p-b-53">
+          <%= image_tag( 'shh-2', style: 'width:40%;' ) %>
+        </span>
+
+        <div class="p-t-31 p-b-9">
+          <span class="txt1">
+            Email
+          </span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate = "Email is required">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input100" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="p-t-13 p-b-9">
+          <span class="txt1">
+            Password
+          </span>
+
+          <a href="#" class="txt2 bo1 m-l-5">
+            Forgot?
+          </a>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <%= f.password_field :password, autocomplete: "off", class: "input100" %>
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-login100-form-btn m-t-17">
+          <button type="submit" class="login100-form-btn">Sign in</button>
+        </div>
+
+        <div class="w-full text-center p-t-55">
+          <span class="txt2">
+            Not a member?
+          </span>
+          <a href="#" id="sign-up-btn" class="txt2 bo1 user-reg-intro-btn">Sign up now</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="register-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="/register" method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <div class="modal-content-hold">
+        <div class="form-group input-groups-hold">
+          <label for="user[name]">Full Name</label>
+          <input id="input-rat-hold-name" type="text" name="user[name]">
+        </div>
+        <div class="form-group input-groups-hold">
+          <label for="user[email]">Email</label>
+          <input id="input-rat-hold-email" type="text" name="user[email]">
+        </div>
+        <div class="submit-register">
+          <button type="submit" class="sign-up-btn btn btn-dark">Sign Up</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<%= javascript_include_tag( 'popper.min.js' ) %>
+<%= javascript_include_tag( 'bootstrap/bootstrap.min.js' ) %>
+<%= javascript_include_tag( 'colorlib/login/main.js' ) %>
+
+<script>
+  $( '#sign-up-btn' ).on( 'click', function( e ) {
+    e.preventDefault();
+    var modal = document.getElementById( 'register-modal' );
+    modal.style.display = "block";
+    $( '#input-rat-hold-name' ).css( "background-image", "none !important" );
+    $( '#input-rat-hold-email' ).css( "background-image", "none !important" );
+  });
+
+  $( ".close" ).on( "click", function( e ) {
+    var modal = document.getElementById( 'register-modal' );
+    modal.style.display = "none";
+  });
+</script>

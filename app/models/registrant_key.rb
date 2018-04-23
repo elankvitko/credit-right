@@ -1,0 +1,2 @@
+class RegistrantKey < ApplicationRecord
+end
