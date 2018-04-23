@@ -7,22 +7,22 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: font-url('colorlib/poppins/Poppins-Regular.ttf');
+  src: font-url("colorlib/poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: font-url('colorlib/poppins/Poppins-Medium.ttf');
+  src: font-url("colorlib/poppins/Poppins-Medium.ttf");
 }
 
 @font-face {
   font-family: Montserrat-Medium;
-  src: font-url('colorlib/montserrat/Montserrat-Medium.ttf');
+  src: font-url("colorlib/montserrat/Montserrat-Medium.ttf");
 }
 
 @font-face {
   font-family: Montserrat-SemiBold;
-  src: font-url('colorlib/montserrat/Montserrat-SemiBold.ttf');
+  src: font-url("colorlib/montserrat/Montserrat-SemiBold.ttf");
 }
 
 /*//////////////////////////////////////////////////////////////////
