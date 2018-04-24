@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users
 
   devise_scope :user do
     unauthenticated do
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
 
   post '/register' => 'secure_registers#push_out'
   get '/accept-registrant/:key' => 'secure_registers#accept_new_registrant', as: :accept_registrant
+  get '/complete-registration/:key' => 'secure_registers#complete_signup', as: :complete_registrant
+  get '/dashboard' => 'home#index', as: :dashboard
 end

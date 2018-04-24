@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag 'colorlib/login/util.css' %>
+<%= stylesheet_link_tag 'colorlib/login/main.css' %>
+
 <style media="screen">
   .modal {
     display: none; /* Hidden by default */
@@ -48,6 +51,12 @@
 
   .modal form input:focus {
     border-color: grey !important;
+  }
+
+  @media only screen and (min-width: 414px) and (max-width: 850px) {
+    .modal-content {
+      width: 100%;
+    }
   }
 </style>
 
@@ -100,7 +109,7 @@
   </div>
 </div>
 
-<div id="register-modal" class="modal">
+<div id="register-modal" class="modal col-md-12 col-sm-12">
   <div class="modal-content">
     <span class="close">&times;</span>
     <form action="/register" method="post">
@@ -121,11 +130,9 @@
       </div>
     </form>
   </div>
-
 </div>
 
 <%= javascript_include_tag( 'popper.min.js' ) %>
-<%= javascript_include_tag( 'bootstrap/bootstrap.min.js' ) %>
 <%= javascript_include_tag( 'colorlib/login/main.js' ) %>
 
 <script>
@@ -141,4 +148,10 @@
     var modal = document.getElementById( 'register-modal' );
     modal.style.display = "none";
   });
+
+  if ( window.location.href.includes( "auth_msg" ) ) {
+    var partial = window.location.href.split( "auth_msg=" )[ 1 ];
+    partial = partial.replace(/\+/g, " ").replace( /%21/g, "" );
+    alert( partial );
+  };
 </script>

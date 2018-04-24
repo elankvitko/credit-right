@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423202427) do
+ActiveRecord::Schema.define(version: 20180424163933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "complete_keys", force: :cascade do |t|
+    t.string "full_name", null: false
+    t.string "email", null: false
+    t.string "key", null: false
+    t.boolean "used", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_complete_keys_on_key"
+  end
 
   create_table "registrant_keys", force: :cascade do |t|
     t.string "full_name", null: false
@@ -33,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180423202427) do
     t.string "city"
     t.string "state"
     t.string "po"
+    t.string "zip"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "admin", default: false, null: false

@@ -14,8 +14,6 @@
  *= require colorlib/fonts/font-awesome.min.css
  *= require colorlib/fonts/icon-font.min.css
  *= require animate/animate.css
- *= require colorlib/login/util.css
- *= require colorlib/login/main.css
  *= require_tree .
  *= require_self
  */

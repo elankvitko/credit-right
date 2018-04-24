@@ -1,0 +1,130 @@
+<%= stylesheet_link_tag 'colorlib/registrations/util.css' %>
+<%= stylesheet_link_tag 'colorlib/registrations/main.css' %>
+
+<body style="background-color: #999999;">
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="login100-more" style="background-image: url( <%= image_url( 'colorlib/registrations/bg-girl.jpg' ) %> );"></div>
+
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+        <%= form_for current_user, html: { id: "f-style-f-form-main", class: "login100-form validate-form" } do |f| %>
+          <span class="login100-form-title p-b-59">
+            <%= "#{ @msg } #{ current_user.first_name }" %>!
+          </span>
+
+          <div class="wrap-input100">
+						<span class="label-input100">First Name</span>
+						<input class="input100" type="text" name="user[first_name]" placeholder="John" value="<%= current_user.first_name %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">Last Name</span>
+						<input class="input100" type="text" name="user[last_name]" placeholder="Doe" value="<%= current_user.last_name %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="user[email]" placeholder="Ex. john@gmail.com" value="<%= current_user.email %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">P.O. Box Number</span>
+						<input class="input100" type="text" name="user[po]" placeholder="P.O. Box 1443" value="<%= current_user.po %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">Address</span>
+						<input class="input100" type="text" name="user[address]" placeholder="123 Broom St." value="<%= current_user.address %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">Second Line</span>
+						<input class="input100" type="text" name="user[address_second]" placeholder="Apt, House Number, etc..." value="<%= current_user.address_second %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">City</span>
+						<input class="input100" type="text" name="user[city]" placeholder="Brooklyn" value="<%= current_user.city %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">State</span>
+						<input class="input100" type="text" name="user[state]" placeholder="NY" value="<%= current_user.state %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">Zip Code</span>
+						<input class="input100" type="text" name="user[zip]" placeholder="10019" value="<%= current_user.zip %>">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">Password</span>
+						<input class="input100 password-field-emp" type="password" name="user[password]" autocomplete="off" data-lpignore="true">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100">
+						<span class="label-input100">Confirm Password</span>
+						<input class="input100 password-field-emp" type="password" name="user[password_confirmation]" autocomplete="off" data-lpignore="true">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button type="submit" id="ck-sub" class="login100-form-btn">
+								Complete Registration
+							</button>
+						</div>
+					</div>
+        <% end %>
+			</div>
+		</div>
+	</div>
+
+  <%= javascript_include_tag( 'colorlib/registrations/main.js' ) %>
+
+  <script>
+    $( document ).ready( function( e ) {
+      setTimeout( function() {
+        $( ".password-field-emp" ).val( '' );
+      }, 2000);
+
+      $( '#ck-sub' ).on( 'click', function( e ) {
+        e.preventDefault();
+        var target = $( 'form#f-style-f-form-main' )[ 0 ];
+        var elements = target.elements;
+        var fails = 0
+        var attrs = "[ "
+
+        $.each( elements, function( idx, element ) {
+          if ( idx !== 8 && idx !== 14 ) {
+            if ( element.value === "" ) {
+              var partial = element.name.split( "[" )[ 1 ];
+              var length = partial.length;
+              attrs = attrs + partial.substr( 0, length - 1 ) + ", ";
+              fails ++;
+            };
+          };
+        });
+
+        if ( fails === 0 ) {
+          $( 'form#f-style-f-form-main' ).submit();
+        } else {
+          var msg = "You can't leave these fiels blank: " + attrs + "]"
+          var length = msg.length;
+          alert( msg.slice( 0, length - 3 ) + msg.slice( length - 2, msg.length ) );
+        };
+      });
+    });
+  </script>
+</body>

@@ -1,0 +1,2 @@
+class CompleteKey < ApplicationRecord
+end
