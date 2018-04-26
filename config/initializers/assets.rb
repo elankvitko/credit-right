@@ -13,5 +13,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
-Rails.application.config.assets.precompile += %w( colorlib/login/**.css )
-Rails.application.config.assets.precompile += %w( colorlib/registrations/**.css )
+# Rails.application.config.assets.precompile += %w( colorlib/login/**.css )
+# Rails.application.config.assets.precompile += %w( colorlib/registrations/**.css )
+# Rails.application.config.assets.precompile += %w( colorlib/dashboard/**/.css )
+
+Dir.glob( "#{ Rails.root }/vendor/assets/stylesheets/**/" ).each do | directory |
+  Rails.application.config.assets.precompile += %w( **.css )
+end

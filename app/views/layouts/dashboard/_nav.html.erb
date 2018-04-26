@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default navbar-static-top m-b-0">
+    <div class="navbar-header">
+        <ul class="nav navbar-top-links navbar-right pull-right">
+            <li>
+                <a class="profile-pic" href="#">
+                  <b class="hidden-xs"><%= "#{ current_user.first_name } #{ current_user.last_name }" %></b>
+                  <%= link_to destroy_user_session_path, :method => 'delete' do %><i class="fa fa-sign-out" aria-hidden="true"></i><% end %>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav slimscrollsidebar">
+        <div class="sidebar-head">
+            <h3><span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span> <span class="hide-menu">Welcome, <%= current_user.first_name %>!</span></h3>
+        </div>
+        <ul class="nav" id="side-menu">
+            <li style="padding: 70px 0 0;">
+                <%= link_to dashboard_path, class: "waves-effect" do %><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard<% end %>
+            </li>
+            <li>
+                <%= link_to user_path( current_user ), class: "waves-effect" do %><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profile<% end %>
+            </li>
+        </ul>
+        <div class="center p-20">
+             <%= link_to "Need Help?", dashboard_path, class: "btn btn-danger btn-block waves-effect waves-light" %>
+         </div>
+    </div>
+</div>

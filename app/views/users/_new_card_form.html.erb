@@ -1,0 +1,10 @@
+<div id="sectional-form-plug-card" class="hide">
+  <%= form_for @pm, :html => { id: "new-card-submission" } do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div style="margin-top: 50px">
+      <div class="card-js" data-capture-name="true" data-icon-colour="#158CBA"></div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary save-card-info">Save Card</button>
+  <% end %>
+</div>

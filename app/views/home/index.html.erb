@@ -1,1 +1,50 @@
-<h1>Hi</h1>
+<%= stylesheet_link_tag 'colorlib/dashboard/bower_components/sidebar-nav/dist/sidebar-nav.min.css' %>
+<%= stylesheet_link_tag 'colorlib/dashboard/bower_components/toast-master/css/jquery.toast.css' %>
+<%= stylesheet_link_tag 'colorlib/dashboard/bower_components/morrisjs/morris.css' %>
+<%= stylesheet_link_tag 'colorlib/dashboard/bower_components/chartist-js/dist/chartist.min.css' %>
+<%= stylesheet_link_tag 'colorlib/dashboard/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css' %>
+<%= stylesheet_link_tag 'colorlib/dashboard/animate.css' %>
+<%= stylesheet_link_tag 'colorlib/dashboard/style.css' %>
+<%= stylesheet_link_tag 'colorlib/dashboard/colors/default.css' %>
+
+<body class="fix-header">
+    <div id="wrapper">
+        <%= render "layouts/dashboard/nav" %>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">My Dashboard</h4>
+                    </div>
+                </div>
+                <%= render 'top_widgets' %>
+                <%= render 'dashboard_chart' %>
+                <div class="row">
+                    <div class="col-md-12 col-lg-8 col-sm-12">
+                        <div class="white-box">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="white-box">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%= render 'layouts/dashboard/footer' %>
+        </div>
+    </div>
+
+  <%= javascript_include_tag 'colorlib/dashboard/bower_components/sidebar-nav/dist/sidebar-nav.min.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/jquery.slimscroll.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/waves.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/bower_components/waypoints/lib/jquery.waypoints.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/bower_components/counterup/jquery.counterup.min.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/bower_components/chartist-js/dist/chartist.min.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/bower_components/jquery-sparkline/jquery.sparkline.min.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/custom.min.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/dashboard1.js' %>
+  <%= javascript_include_tag 'colorlib/dashboard/bower_components/toast-master/js/jquery.toast.js' %>
+</body>

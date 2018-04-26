@@ -1,0 +1,18 @@
+<div id="cards-collect-info">
+  <table id="all-cards">
+    <thead>
+      <tr>
+        <th>Card Number</th>
+        <th>Expiration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cards.each do | card | %>
+        <tr>
+          <td><%= card.mask %></td>
+          <td><%= "#{ card.cem }/#{ card.cey }" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

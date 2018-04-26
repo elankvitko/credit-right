@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  around_action :catch_not_found
 
   def edit
     user = User.find( params[ :id ] )
-    redirect_to unauthenticated_root_path if current_user != user
+
+    if current_user != user
+      redirect_to unauthenticated_root_path
+    else
+      if current_user.sign_in_count > 1
+        redirect_to user_path( current_user )
+      end
+    end
+
     @msg = current_user.sign_in_count == 1 ? "Welcome" : "Edit Your Info"
   end
 
@@ -12,6 +21,11 @@ class UsersController < ApplicationController
       bypass_sign_in current_user
       redirect_to dashboard_path
     end
+  end
+
+  def show
+    @pm = PaymentMethod.new
+    @cards = current_user.payment_methods
   end
 
     private

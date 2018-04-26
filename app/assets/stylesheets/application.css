@@ -11,9 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap/bootstrap.min.css
- *= require colorlib/fonts/font-awesome.min.css
+ *= require font-awesome
  *= require colorlib/fonts/icon-font.min.css
  *= require animate/animate.css
  *= require_tree .
+ *= require dataTables/extras/dataTables.responsive
+ *= require dataTables/jquery.dataTables
  *= require_self
  */

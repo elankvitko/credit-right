@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
+  resources :payment_methods, except: [ :show, :index, :new ]
 
   devise_scope :user do
     unauthenticated do
