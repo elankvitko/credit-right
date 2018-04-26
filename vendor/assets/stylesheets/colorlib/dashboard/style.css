@@ -3332,7 +3332,7 @@ ul.common li a:hover {
 }
 
 .time-item {
-    border-color: $border;
+    /* border-color: $border; */
     padding-bottom: 1px;
     position: relative
 }
