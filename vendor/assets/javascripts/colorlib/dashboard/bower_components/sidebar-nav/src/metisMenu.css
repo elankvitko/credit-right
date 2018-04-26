@@ -35,7 +35,7 @@
 }
 
 .active > a > .fa.plus-times {
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    /* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); */
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
